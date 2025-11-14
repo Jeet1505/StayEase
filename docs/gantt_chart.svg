@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="320" viewBox="0 0 900 320">
+  <style>
+    .title { font: bold 18px sans-serif; fill:#111827 }
+    .label { font: 13px sans-serif; fill:#111827 }
+    .week { font: 12px sans-serif; fill:#374151 }
+    .grid { stroke:#E5E7EB; stroke-width:1 }
+    .bar { rx:6; ry:6 }
+    .bar-back { fill:#E6F0FF }
+    .bar-main { fill:#3B82F6 }
+    .bar-alt { fill:#60A5FA }
+    .legend-label { font:12px sans-serif; fill:#111827 }
+  </style>
+
+  <!-- Title -->
+  <text x="20" y="30" class="title">Project Gantt Chart — StayEase (7 weeks)</text>
+
+  <!-- Timeline weeks -->
+  <g transform="translate(150,50)">
+    <!-- week vertical grid lines and labels -->
+    <!-- weeks 1..7 -->
+    <g id="weeks">
+      <rect x="0" y="-30" width="700" height="200" fill="none" stroke="none"/>
+      <!-- vertical lines + labels -->
+      <!-- week width = 100 -->
+      <g>
+        <!-- draw week columns -->
+        <g>
+          <line x1="0" y1="0" x2="700" y2="0" class="grid"/>
+        </g>
+      </g>
+      <!-- week markers -->
+      <g>
+        <text x="0" y="-10" class="week">Week 1</text>
+        <text x="100" y="-10" class="week">Week 2</text>
+        <text x="200" y="-10" class="week">Week 3</text>
+        <text x="300" y="-10" class="week">Week 4</text>
+        <text x="400" y="-10" class="week">Week 5</text>
+        <text x="500" y="-10" class="week">Week 6</text>
+        <text x="600" y="-10" class="week">Week 7</text>
+        <!-- vertical separators -->
+        <line x1="0" y1="-20" x2="0" y2="140" class="grid"/>
+        <line x1="100" y1="-20" x2="100" y2="140" class="grid"/>
+        <line x1="200" y1="-20" x2="200" y2="140" class="grid"/>
+        <line x1="300" y1="-20" x2="300" y2="140" class="grid"/>
+        <line x1="400" y1="-20" x2="400" y2="140" class="grid"/>
+        <line x1="500" y1="-20" x2="500" y2="140" class="grid"/>
+        <line x1="600" y1="-20" x2="600" y2="140" class="grid"/>
+        <line x1="700" y1="-20" x2="700" y2="140" class="grid"/>
+      </g>
+    </g>
+
+    <!-- Tasks rows and bars -->
+    <!-- row height = 28, start y = 0, gap 18 -->
+    <g transform="translate(-140,10)">
+  <!-- Row 1: Requirements &amp; Design (Week 1) -->
+  <text x="0" y="10" class="label">Requirements &amp; Design</text>
+      <rect x="150" y="0" width="100" height="20" class="bar bar-main"/>
+
+  <!-- Row 2: Backend API &amp; DB (Weeks 2-3) -->
+  <text x="0" y="60" class="label">Backend API &amp; DB</text>
+      <rect x="250" y="50" width="200" height="20" class="bar bar-main"/>
+
+      <!-- Row 3: Frontend Core (Weeks 4-5) -->
+      <text x="0" y="110" class="label">Frontend Core (Public + Auth + Dashboard)</text>
+      <rect x="350" y="100" width="200" height="20" class="bar bar-alt"/>
+
+  <!-- Row 4: Integration, Testing &amp; Polishing (Week 6) -->
+  <text x="0" y="160" class="label">Integration, Testing &amp; Polishing</text>
+      <rect x="450" y="150" width="100" height="20" class="bar bar-main"/>
+
+  <!-- Row 5: Deployment &amp; Documentation (Week 7) -->
+  <text x="0" y="210" class="label">Deployment &amp; Documentation</text>
+      <rect x="550" y="200" width="100" height="20" class="bar bar-alt"/>
+
+      <!-- Optional buffer / overlap indicator -->
+      <text x="0" y="250" class="label">Notes</text>
+  <text x="150" y="250" class="label" style="font-size:12px;fill:#374151">Each week represents ~1 calendar week. Bars show planned primary activity windows. Actual work may overlap; single-developer schedule extends some tasks to match effort.</text>
+    </g>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(20,270)">
+    <rect x="0" y="0" width="16" height="12" fill="#3B82F6" rx="3" ry="3"/>
+    <text x="22" y="10" class="legend-label">Primary development phase</text>
+    <rect x="250" y="0" width="16" height="12" fill="#60A5FA" rx="3" ry="3"/>
+    <text x="278" y="10" class="legend-label">Frontend / UI phase</text>
+  </g>
+
+</svg>

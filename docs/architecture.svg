@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <style>
+    .title { font: bold 20px sans-serif; fill:#0f172a }
+    .box { fill: #ffffff; stroke:#0f172a; stroke-width:2; rx:8; }
+    .sub { fill:#f8fafc; stroke:#cbd5e1; stroke-width:1; rx:6 }
+    .label { font: 14px sans-serif; fill:#0f172a }
+    .note { font: 12px sans-serif; fill:#475569 }
+    .arrow { stroke:#334155; stroke-width:2; fill:none; marker-end:url(#arrowhead) }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#334155" />
+    </marker>
+  </defs>
+
+  <text x="40" y="36" class="title">StayEase System Architecture</text>
+
+  <!-- Browser / Client -->
+  <g transform="translate(40,70)">
+    <rect x="0" y="0" width="240" height="70" class="box" />
+    <text x="120" y="36" class="label" text-anchor="middle">User / Owner Browser</text>
+    <text x="120" y="56" class="note" text-anchor="middle">(Next.js client components)</text>
+  </g>
+
+  <!-- CDN / Reverse Proxy -->
+  <g transform="translate(320,60)">
+    <rect x="0" y="0" width="260" height="90" class="sub" />
+    <text x="130" y="30" class="label" text-anchor="middle">CDN / Reverse Proxy</text>
+    <text x="130" y="52" class="note" text-anchor="middle">(Vercel / Nginx / CloudFront)</text>
+  </g>
+
+  <!-- Frontend -->
+  <g transform="translate(640,40)">
+    <rect x="0" y="0" width="380" height="120" class="box" />
+    <text x="190" y="36" class="label" text-anchor="middle">Next.js App</text>
+    <text x="190" y="60" class="note" text-anchor="middle">(React, TypeScript, app-router)</text>
+    <text x="190" y="80" class="note" text-anchor="middle">SSG / SSR / Client components</text>
+  </g>
+
+  <!-- Backend -->
+  <g transform="translate(220,220)">
+    <rect x="0" y="0" width="760" height="160" class="box" />
+    <text x="380" y="36" class="label" text-anchor="middle">Backend API (Spring Boot)</text>
+    <text x="380" y="60" class="note" text-anchor="middle">Controllers, Services, Repositories, PDF Generation</text>
+
+    <!-- internal sub-components -->
+    <g transform="translate(20,80)">
+      <rect x="0" y="0" width="220" height="60" class="sub" />
+  <text x="110" y="36" class="label" text-anchor="middle">Auth &amp; User Management</text>
+    </g>
+    <g transform="translate(270,80)">
+      <rect x="0" y="0" width="220" height="60" class="sub" />
+      <text x="110" y="36" class="label" text-anchor="middle">Listings / Appointments</text>
+    </g>
+    <g transform="translate(520,80)">
+      <rect x="0" y="0" width="220" height="60" class="sub" />
+      <text x="110" y="36" class="label" text-anchor="middle">Reviews / Notifications</text>
+    </g>
+  </g>
+
+  <!-- Database -->
+  <g transform="translate(120,420)">
+    <rect x="0" y="0" width="220" height="70" class="box" />
+    <text x="110" y="36" class="label" text-anchor="middle">Relational DB</text>
+    <text x="110" y="56" class="note" text-anchor="middle">(Postgres / MySQL)</text>
+  </g>
+
+  <!-- Object storage and external services -->
+  <g transform="translate(420,420)">
+    <rect x="0" y="0" width="220" height="70" class="box" />
+    <text x="110" y="36" class="label" text-anchor="middle">Object Storage</text>
+    <text x="110" y="56" class="note" text-anchor="middle">(S3 / Cloud Storage for images)</text>
+  </g>
+
+  <g transform="translate(720,420)">
+    <rect x="0" y="0" width="260" height="70" class="box" />
+    <text x="130" y="28" class="label" text-anchor="middle">Email / SMS Provider</text>
+    <text x="130" y="48" class="note" text-anchor="middle">(SMTP / Twilio)</text>
+  </g>
+
+  <!-- Observability -->
+  <g transform="translate(720,520)">
+    <rect x="0" y="0" width="260" height="70" class="sub" />
+  <text x="130" y="32" class="label" text-anchor="middle">Logging &amp; Monitoring</text>
+    <text x="130" y="52" class="note" text-anchor="middle">(ELK, Prometheus, Sentry)</text>
+  </g>
+
+  <!-- Arrows / flows -->
+  <path d="M280 105 L320 105" class="arrow" />
+  <path d="M580 100 L640 100" class="arrow" />
+  <path d="M820 160 L640 160" class="arrow" />
+  <path d="M580 220 L580 220 L500 220 L500 260" class="arrow" />
+
+  <!-- Frontend -> Backend -->
+  <path d="M820 160 L740 160" class="arrow" />
+  <path d="M740 160 L740 220" class="arrow" />
+
+  <!-- Backend -> DB -->
+  <path d="M400 380 L260 380" class="arrow" />
+  <path d="M260 380 L260 420" class="arrow" />
+
+  <!-- Backend -> Object Storage -->
+  <path d="M520 380 L520 420" class="arrow" />
+
+  <!-- Backend -> Email/SMS -->
+  <path d="M640 380 L800 420" class="arrow" />
+
+  <!-- Backend -> Monitoring -->
+  <path d="M640 380 L800 520" class="arrow" />
+
+  <!-- Notes -->
+  <text x="40" y="660" class="note">Diagram: high-level system architecture for StayEase. Frontend (Next.js) communicates with Backend (Spring Boot) via REST API. Backend persists to relational DB, stores images in Object Storage, and uses external providers for email and monitoring.</text>
+</svg>
